@@ -19,6 +19,7 @@ const server = http.createServer((req, res) => {
         return req.on('end', () => {
             const parseBody = Buffer.concat(body).toString();
             const message = parseBody.split('=')[1]
+            console.log(message)
             fs.writeFile('message.txt', message, () => {
                 res.statusCode = 302
                 res.setHeader('Location', '/')
@@ -27,6 +28,8 @@ const server = http.createServer((req, res) => {
         })
         
     }
+
+    
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>my first page</title></head>');
