@@ -21,13 +21,14 @@ module.exports = class Product {
         })
     }
 
-    static fetchAll() {
+    static fetchAll(cb) {
         const p = path('data', 'products.json')
         fs.readFile(p, (err, fileContent) => {
             if (err) {
+                cb([])
                 return []
             }
-            return JSON.parse(fileContent)
+            cb(JSON.parse(fileContent))
         })
     }
 }
