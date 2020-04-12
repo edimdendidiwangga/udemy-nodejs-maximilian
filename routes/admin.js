@@ -5,7 +5,7 @@ const path = require('../utils/path')
 const products = [];
 
 router.get('/add-product', (req, res, next) => {
-    res.render('add-product', { pageTitle: 'Add Product' })
+    res.render('add-product', { pageTitle: 'Add Product', pathUrl: req.url  })
 });
 
 router.post('/add-product', (req, res, next) => {
