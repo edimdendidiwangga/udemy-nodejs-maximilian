@@ -14,5 +14,4 @@ exports.getProducts = (req, res, next) => {
     Product.fetchAll((products) => {
         res.render('shop', { prods: products, pageTitle: 'Shop', pathUrl: req.url })
     })
-    
 }
